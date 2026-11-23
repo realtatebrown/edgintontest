@@ -1,0 +1,139 @@
+@font-face {
+  font-family: 'Edginton Masthead';
+  src: url('assets/masthead.woff') format('woff');
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: Gloock;
+  src: url('assets/gloock.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+:root {
+  --paper: #f7f5ef;
+  --ink: #191916;
+  --red: #a3291d;
+  --muted: #5b5851;
+  --rule: #b5b0a5;
+  --display: Gloock, Georgia, serif;
+  --utility: Arial, Helvetica, sans-serif;
+  color-scheme: light;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+* { box-sizing: border-box; }
+body, h1, h2, h3, p, figure { margin: 0; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, iframe:focus-visible { outline: 3px solid var(--red); outline-offset: 4px; }
+a:hover { color: var(--red); }
+img { display: block; width: 100%; }
+h2, h3 { font-family: var(--display); font-weight: 400; }
+.skip { position: absolute; top: -6rem; z-index: 3; padding: 1rem; background: white; }
+.skip:focus { top: 0; }
+.paper { width: min(1280px, calc(100% - 8vw)); margin: 0 auto; padding-top: 1.1rem; }
+header { container-type: inline-size; }
+.dateline { border-top: 2px solid var(--ink); display: flex; justify-content: space-between; align-items: baseline; padding-top: .53rem; font: .8rem/1.2 var(--utility); }
+.dateline span { text-transform: uppercase; letter-spacing: .16em; font-weight: 700; }
+.dateline time { font-family: Georgia, serif; font-style: italic; font-size: .94rem; }
+.masthead { margin: 1.3cqw 0 1.15cqw; font-family: 'Edginton Masthead', 'Times New Roman', serif; font-weight: 900; font-size: 18.420cqw; line-height: .805; letter-spacing: -.055em; font-kerning: none; }
+.masthead a { display: block; width: fit-content; color: inherit; margin-left: -.015em; }
+nav { display: flex; justify-content: space-between; align-items: stretch; gap: 1rem; border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink); font: 600 .9rem/1.2 var(--utility); }
+.desks { display: flex; align-items: stretch; gap: clamp(.9rem, 2.6vw, 2.45rem); }
+.desks a { display: flex; align-items: center; padding: .8rem 0; }
+.subscribe { display: grid; place-items: center; background: var(--red); color: white; padding: .55rem 1.4rem; margin: .26rem 0; }
+.subscribe:hover { background: #812318; color: white; }
+.front { display: grid; grid-template-columns: minmax(0, 2.12fr) minmax(0, 1fr); padding-top: 1.65rem; }
+.lead { padding-right: clamp(1.3rem, 2.6vw, 2.6rem); }
+.section-line, .film-heading { display: flex; align-items: baseline; justify-content: space-between; gap: .8rem; }
+.section-line { margin-bottom: .72rem; }
+.kicker, .rubric, .play, .duration { font-family: var(--utility); }
+.kicker { display: inline-flex; align-items: center; gap: .6rem; font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--red); }
+.kicker i { display: inline-block; width: 1.55rem; height: 3px; background: currentColor; }
+.section-line time, figcaption { font-size: .83rem; color: var(--muted); }
+.section-line time { font-style: italic; }
+.screen, .frame { position: relative; overflow: hidden; background: #222; }
+.screen { aspect-ratio: 1.91; }
+.screen:has(iframe) { aspect-ratio: 16/9; }
+.screen iframe, .poster, .poster img { width: 100%; height: 100%; border: 0; display: block; }
+.poster img, .frame img { object-fit: cover; }
+.poster img { object-position: center 52%; }
+.screen:focus-within { outline: 3px solid var(--red); outline-offset: 3px; }
+.play, .duration { position: absolute; bottom: .85rem; font-variant-numeric: tabular-nums; }
+.play { left: .9rem; display: flex; gap: .55rem; align-items: center; background: var(--paper); color: var(--ink); font-weight: 700; padding: .6rem .8rem; font-size: .85rem; }
+.triangle { width: 0; height: 0; border-top: .33rem solid transparent; border-bottom: .33rem solid transparent; border-left: .53rem solid var(--red); }
+.poster:hover .play { background: white; color: var(--red); }
+.duration { right: .9rem; color: white; background: #151512e8; padding: .25rem .4rem; font-size: .75rem; letter-spacing: .05em; }
+figcaption { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: .45rem 0 .68rem; line-height: 1.3; font-style: italic; border-bottom: 1px solid var(--rule); }
+figcaption a, .archive-link, .footer-links a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+figcaption a { flex-shrink: 0; }
+.lead h2 { font-size: clamp(2.5rem,4.75vw,4.5rem); line-height: 1.015; letter-spacing: -.05em; margin: .85rem 0 .72rem; text-wrap: balance; }
+.standfirst { font-size: clamp(1.12rem,1.65vw,1.45rem); line-height: 1.38; max-width: 48em; }
+.reports { border-left: 1px solid var(--rule); padding-left: clamp(1.3rem,2.6vw,2.6rem); }
+.desk-title { font-size: clamp(2rem,3.1vw,3.1rem); letter-spacing: -.045em; line-height: 1.08; }
+.reports .desk-title { border-bottom: 2px solid var(--ink); padding-bottom: .65rem; margin-top: -.25rem; }
+.reports article { padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+.rubric { font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .095em; color: var(--red); }
+.rubric span { color: var(--rule); margin: 0 .23rem; }
+.rubric time { color: var(--muted); letter-spacing: .03em; font-weight: 400; }
+.reports h3, .film-grid h3 { font-size: clamp(1.35rem,1.95vw,1.85rem); line-height: 1.13; letter-spacing: -.027em; }
+.reports h3 { margin: .44rem 0 .34rem; }
+.reports p { font-size: 1.04rem; line-height: 1.4; color: #45433e; }
+.archive-link { display: inline-block; font: 600 .85rem/1.4 var(--utility); }
+.reports .archive-link { margin-top: .9rem; }
+.film-desk { margin-top: 2rem; border-top: 3px solid var(--ink); }
+.film-heading { margin: .8rem 0 1rem; }
+.film-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.4rem; }
+.frame { aspect-ratio: 16/9; margin-bottom: .8rem; }
+.frame img { height: 100%; }
+.frame .duration { right: .5rem; bottom: .5rem; }
+.film-link { display: block; }
+.film-grid h3 { margin: .4rem 0 0; }
+footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--ink); margin: 2.5rem 0 0; padding: 1rem 0 1.8rem; }
+footer > div, .footer-links { display: flex; align-items: baseline; gap: 1rem; }
+.small-mark { font: 900 1.65rem/1 'Edginton Masthead', Georgia, serif; letter-spacing: -.05em; }
+.footer-credit { font-size: .88rem; font-style: italic; }
+.footer-links { font: .85rem var(--utility); }
+section[id], article[id] { scroll-margin-top: 1rem; }
+@media(max-width: 760px) {
+  .front { display: block; padding-top: 1.15rem; }
+  .lead { padding: 0; }
+  .reports { border-left: 0; border-top: 2px solid var(--ink); margin-top: 1.5rem; padding: 1rem 0 0; }
+  .reports .desk-title { border-bottom-width: 1px; }
+  .lead h2 { font-size: clamp(2.3rem,7.5vw,3.6rem); }
+  .reports h3, .film-grid h3 { font-size: 1.5rem; }
+  .film-grid { grid-template-columns: 1fr; gap: 0; }
+  .film-grid article { border-top: 1px solid var(--rule); padding: .9rem 0; }
+  .film-link { display: grid; grid-template-columns: 33% 1fr; column-gap: .85rem; align-content: start; }
+  .frame { grid-row: span 2; margin: 0; }
+  .film-grid .rubric { align-self: end; }
+  .film-grid h3 { font-size: clamp(1.12rem,4vw,1.6rem); }
+  .film-heading { flex-wrap: wrap; margin-bottom: .7rem; }
+  footer, footer > div { flex-wrap: wrap; }
+}
+@media(max-width: 500px) {
+  .paper { width: calc(100% - 1.75rem); padding-top: .65rem; }
+  .dateline time { font-size: .8rem; }
+  .masthead { margin: .6rem 0 .5rem; }
+  nav { font-size: .8rem; gap: .4rem; }
+  .desks { flex: 1; justify-content: space-between; gap: .3rem; }
+  .subscribe { padding: .4rem .55rem; margin-left: .25rem; }
+  .screen { aspect-ratio: 16/9; }
+  .play, .duration { bottom: .5rem; }
+  .play { left: .5rem; padding: .42rem .55rem; font-size: .77rem; }
+  .duration { right: .5rem; }
+  .film-heading .desk-title { font-size: 1.85rem; }
+  .film-heading .archive-link { font-size: .77rem; }
+  footer { align-items: start; }
+  .footer-credit { flex-basis: 100%; }
+  footer > div { gap: .35rem; }
+  .footer-links { gap: 1rem; }
+}
+@media(max-width: 355px) {
+  nav { flex-wrap: wrap; }
+  .desks { flex-basis: 100%; }
+  .subscribe { margin: 0 0 .3rem; }
+}
