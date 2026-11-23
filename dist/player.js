@@ -1,26 +1,76 @@
-const interviewScreen = document.querySelector('.screen');
-const playLink = interviewScreen.querySelector('.poster');
+const room = document.querySelector('.screening');
+const roomChapters = room.querySelector('.chapter-list');
+const playerHost = room.querySelector('.screening-player');
+const returnButton = room.querySelector('.screening-back');
+const sourceLink = room.querySelector('#screening-source');
+let opener;
+let scrollPosition;
 
-function playInterview(event) {
-  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-  const link = event.currentTarget;
-  const watchUrl = new URL(link.href);
-  const embedUrl = new URL(watchUrl.searchParams.get('v'), 'https://www.youtube-nocookie.com/embed/');
-  embedUrl.searchParams.set('autoplay', '1');
-  embedUrl.searchParams.set('playsinline', '1');
-  const timestamp = watchUrl.searchParams.get('t');
-  if (timestamp) embedUrl.searchParams.set('start', parseInt(timestamp, 10));
-
-  event.preventDefault();
-  const player = document.createElement('iframe');
-  player.title = 'Christopher Caldwell in conversation with Steven Edginton';
-  player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-  player.referrerPolicy = 'strict-origin-when-cross-origin';
-  player.allowFullscreen = true;
-  player.src = embedUrl.href;
-  interviewScreen.replaceChildren(player);
-  player.focus();
+// A second cover proof shares the photograph, typography and player with the live edition.
+if (new URLSearchParams(location.search).get('cover') === 'question') {
+  document.querySelector('#lead-title a').textContent = 'Can the Boriswave be reversed?';
+  document.querySelector('.lead-intro').textContent = 'After his Oakeshott Lecture, I asked Christopher Caldwell how much of Boris Johnson’s immigration policy Britain could undo.';
 }
 
-playLink.addEventListener('click', playInterview);
-document.querySelectorAll('.chapter-list a').forEach(link => link.addEventListener('click', playInterview));
+function setFilm(watchLink) {
+  const url = new URL(watchLink.href);
+  const embed = new URL(url.searchParams.get('v'), 'https://www.youtube-nocookie.com/embed/');
+  embed.searchParams.set('autoplay', '1');
+  embed.searchParams.set('playsinline', '1');
+  const seconds = parseInt(url.searchParams.get('t'), 10);
+  if (seconds > 0) embed.searchParams.set('start', seconds);
+
+  const player = document.createElement('iframe');
+  player.title = room.querySelector('h2').textContent;
+  player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  player.allowFullscreen = true;
+  player.referrerPolicy = 'strict-origin-when-cross-origin';
+  player.src = embed.href;
+  playerHost.replaceChildren(player);
+  sourceLink.href = url.href;
+  for (const chapter of roomChapters.querySelectorAll('a')) {
+    if (chapter.href === url.href) chapter.setAttribute('aria-current', 'true');
+    else chapter.removeAttribute('aria-current');
+  }
+}
+
+function loadChapters(film) {
+  roomChapters.replaceChildren();
+  for (const source of film.querySelectorAll('.chapter-list a, .film-sequence a')) {
+    const item = document.createElement('li');
+    const link = document.createElement('a');
+    const time = document.createElement('span');
+    time.textContent = (source.querySelector('time') || source.firstElementChild).textContent;
+    const label = source.querySelector('.chapter-name, .scene-title').textContent;
+    link.href = source.href;
+    link.setAttribute('data-watch', '');
+    link.append(time, label);
+    item.append(link);
+    roomChapters.append(item);
+  }
+}
+
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[data-watch]');
+  if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  if (typeof room.showModal !== 'function') return;
+  event.preventDefault();
+  if (!room.open) {
+    const film = link.closest('[data-film-title]');
+    opener = link;
+    scrollPosition = {left: window.scrollX, top: window.scrollY};
+    room.querySelector('h2').textContent = film.dataset.filmTitle;
+    loadChapters(film);
+    room.showModal();
+    room.scrollTop = 0;
+    returnButton.focus({preventScroll: true});
+  }
+  setFilm(link);
+});
+
+returnButton.addEventListener('click', () => room.close());
+room.addEventListener('close', () => {
+  playerHost.replaceChildren();
+  opener?.focus({preventScroll: true});
+  if (scrollPosition) window.scrollTo(scrollPosition);
+});
