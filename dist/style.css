@@ -18,6 +18,7 @@
   --red: #a3291d;
   --muted: #5b5851;
   --rule: #b5b0a5;
+  --news: Georgia, 'Times New Roman', serif;
   --display: Gloock, Georgia, serif;
   --utility: Arial, Helvetica, sans-serif;
   color-scheme: light;
@@ -31,7 +32,7 @@ a { color: inherit; text-decoration: none; }
 a:focus-visible, iframe:focus-visible { outline: 3px solid var(--red); outline-offset: 4px; }
 a:hover { color: var(--red); }
 img { display: block; width: 100%; }
-h2, h3 { font-family: var(--display); font-weight: 400; }
+h2, h3 { font-family: var(--news); font-weight: 700; }
 .skip { position: absolute; top: -6rem; z-index: 3; padding: 1rem; background: white; }
 .skip:focus { top: 0; }
 .paper { width: min(1280px, calc(100% - 8vw)); margin: 0 auto; padding-top: 1.1rem; }
@@ -67,28 +68,28 @@ nav { display: flex; justify-content: space-between; align-items: stretch; gap: 
 .triangle { width: 0; height: 0; border-top: .33rem solid transparent; border-bottom: .33rem solid transparent; border-left: .53rem solid var(--red); }
 .poster:hover .play { background: white; color: var(--red); }
 .duration { right: .9rem; color: white; background: #151512e8; padding: .25rem .4rem; font-size: .75rem; letter-spacing: .05em; }
-figcaption { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: .45rem 0 .68rem; line-height: 1.3; font-style: italic; border-bottom: 1px solid var(--rule); }
-figcaption a, .archive-link, .footer-links a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
-figcaption a { flex-shrink: 0; }
-.lead h2 { max-width: 15.5ch; font-size: clamp(3rem, 5.2vw, 4.9rem); line-height: .99; letter-spacing: -.05em; margin: .4rem 0 .65rem; text-wrap: balance; }
-.byline { margin: 0 0 1.05rem; font-size: clamp(1.03rem, 1.35vw, 1.22rem); font-style: italic; line-height: 1.35; }
-.byline strong { display: inline-block; font-weight: 400; }
-.standfirst { margin-top: .65rem; font-size: clamp(1.12rem,1.65vw,1.45rem); line-height: 1.38; max-width: 48em; }
+.watch-source, figcaption a, .archive-link, .footer-links a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+.watch-source { display: block; width: fit-content; margin: .45rem 0 0 auto; color: var(--muted); font: .81rem/1.35 var(--utility); }
+.lead h2 { font-family: var(--display); font-weight: 400; max-width: 15.5ch; font-size: clamp(3rem, 5.2vw, 4.9rem); line-height: .99; letter-spacing: -.05em; margin: .4rem 0 .65rem; text-wrap: balance; }
+.lead-intro { margin: 0 0 1rem; max-width: 58ch; font-size: clamp(1.1rem, 1.55vw, 1.35rem); line-height: 1.36; text-wrap: pretty; }
 .reports { border-left: 1px solid var(--rule); padding-left: clamp(1.3rem,2.6vw,2.6rem); }
-.desk-title { font-size: clamp(2rem,3.1vw,3.1rem); letter-spacing: -.045em; line-height: 1.08; }
+.desk-title { font-size: clamp(1.55rem, 2.6vw, 2.25rem); letter-spacing: -.035em; line-height: 1.09; }
 .reports .desk-title { border-bottom: 2px solid var(--ink); padding-bottom: .65rem; margin-top: -.25rem; }
-.reports article { padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+.reports article { padding: .82rem 0; border-bottom: 1px solid var(--rule); }
 .rubric { font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .095em; color: var(--red); }
 .rubric span { color: var(--rule); margin: 0 .23rem; }
 .rubric time { color: var(--muted); letter-spacing: .03em; font-weight: 400; }
-.reports h3, .film-grid h3 { font-size: clamp(1.35rem,1.95vw,1.85rem); line-height: 1.13; letter-spacing: -.027em; }
-.reports h3 { margin: .44rem 0 .34rem; }
+.film-grid h3 { font-size: clamp(1.35rem, 1.95vw, 1.85rem); line-height: 1.13; letter-spacing: -.025em; }
+.reports h3 { margin: .35rem 0 .32rem; font-size: clamp(1.28rem, 1.72vw, 1.58rem); line-height: 1.1; letter-spacing: -.023em; }
 .reports p { font-size: 1.04rem; line-height: 1.4; color: #45433e; }
-.document { margin: .7rem 0 .65rem; }
-.clipping { display: block; padding: .4rem .6rem; border: 1px solid var(--rule); border-left: 3px solid var(--ink); background: white; }
-.clipping:hover { border-color: var(--red); }
-.clipping img { width: 100%; max-width: 25.625rem; height: auto; }
-.document figcaption { display: block; padding: .32rem 0 0; border: 0; }
+.document { margin-top: .65rem; }
+.document blockquote { margin: 0; }
+.clipping { display: block; padding: .75rem .85rem .6rem; border: 1px solid var(--rule); background: #fff; color: #171717; font: 1rem/1.3 var(--utility); }
+.clipping:hover { border-color: var(--ink); color: #171717; }
+.clipping strong { display: block; font-size: 1.13rem; margin-bottom: .35rem; }
+.clipping span { display: block; }
+.clipping img { width: 12.6rem; max-width: 100%; height: auto; margin: .58rem 0 0 -.2rem; }
+.document figcaption { margin-top: .38rem; line-height: 1.35; font-style: italic; font-size: .93rem; }
 .archive-link { display: inline-block; font: 600 .85rem/1.4 var(--utility); }
 .reports .archive-link { margin-top: .9rem; }
 .film-desk { margin-top: 2rem; border-top: 3px solid var(--ink); }
@@ -109,7 +110,7 @@ footer > div, .footer-links { display: flex; align-items: baseline; gap: 1rem; }
 .footer-links { font: .85rem var(--utility); }
 .desks [aria-current="page"] { color: var(--red); text-decoration: underline; text-underline-offset: .35em; }
 .index-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin: 2rem 0 .85rem; }
-.index-heading h1 { font: 400 clamp(2.8rem, 5.2vw, 4.9rem)/1.05 var(--display); letter-spacing: -.055em; }
+.index-heading h1 { font: 700 clamp(2.8rem, 5.2vw, 4.9rem)/1.05 var(--news); letter-spacing: -.055em; }
 .index-heading span { font-style: italic; color: var(--muted); }
 .guest-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); column-gap: clamp(1.5rem, 3vw, 3rem); border-top: 2px solid var(--ink); }
 .guest-list li { min-width: 0; border-bottom: 1px solid var(--rule); }
@@ -126,7 +127,7 @@ section[id], article[id] { scroll-margin-top: 1rem; }
   .reports { border-left: 0; border-top: 2px solid var(--ink); margin-top: 1.5rem; padding: 1rem 0 0; }
   .reports .desk-title { border-bottom-width: 1px; }
   .lead h2 { font-size: clamp(2.3rem,7.5vw,3.6rem); }
-  .reports h3, .film-grid h3 { font-size: 1.5rem; }
+  .reports h3 { font-size: 1.4rem; }
   .guest-list { grid-template-columns: 1fr; }
   .guest-link { grid-template-columns: clamp(5rem, 22vw, 7.4rem) 1fr; padding: .9rem 0; }
   .guest-copy p { font-size: 1rem; }
