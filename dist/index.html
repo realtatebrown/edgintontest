@@ -19,9 +19,13 @@
     <header>
       <div class="dateline">
         <span>London</span>
-        <time datetime="2026-11-23">Monday, 23 November 2026</time>
+        <time datetime="2026-11-23"><span class="date-long">Monday, 23 November 2026</span><span class="date-short">23 Nov. 2026</span></time>
       </div>
       <h1 class="masthead"><a href="#top" aria-label="Edginton, front page">EDGINTON</a></h1>
+      <div class="reader-links">
+        <a class="sign-in" href="https://substack.com/sign-in?redirect=%2F&amp;for_pub=stevenedginton">Sign in</a>
+        <a class="subscribe" href="https://www.stevenedginton.com/subscribe">Subscribe</a>
+      </div>
       <nav aria-label="Publication">
         <div class="desks">
           <a href="#investigations">Investigations</a>
@@ -29,7 +33,6 @@
           <a href="#films">Films</a>
           <a href="https://www.stevenedginton.com/archive">Archive</a>
         </div>
-        <a class="subscribe" href="https://www.stevenedginton.com/subscribe">Subscribe</a>
       </nav>
     </header>
 
@@ -44,11 +47,15 @@
               <a class="poster" id="play-film" href="https://www.youtube.com/watch?v=eC46_djd7-4" aria-label="Play the Christopher Caldwell interview, 32 minutes 31 seconds">
                 <img src="assets/caldwell.webp" width="1032" height="473" alt="Christopher Caldwell gestures as Steven Edginton listens on stage in London." fetchpriority="high">
                 <span class="play"><span class="triangle"></span>Play interview</span>
-                <span class="duration">32:31</span>
               </a>
             </div>
-            <a class="watch-source" href="https://www.youtube.com/watch?v=eC46_djd7-4">Watch on YouTube</a>
+            <figcaption class="player-meta"><span>32:31</span><a class="watch-source" href="https://www.youtube.com/watch?v=eC46_djd7-4">Watch on YouTube</a></figcaption>
           </figure>
+          <ol class="chapter-list" aria-label="Jump to a question in the interview">
+            <li><a href="https://www.youtube.com/watch?v=eC46_djd7-4&amp;t=453s"><span>7:33</span>Can the Boriswave be reversed?</a></li>
+            <li><a href="https://www.youtube.com/watch?v=eC46_djd7-4&amp;t=1080s"><span>18:00</span>Is Islam inherently political?</a></li>
+            <li><a href="https://www.youtube.com/watch?v=eC46_djd7-4&amp;t=1749s"><span>29:09</span>Is demography destiny?</a></li>
+          </ol>
         </article>
 
         <section class="reports" id="investigations" aria-labelledby="invest-title">
@@ -82,27 +89,31 @@
 
       <section id="films" class="film-desk" aria-labelledby="film-title">
         <div class="film-heading"><h2 class="desk-title" id="film-title">From the film archive</h2><a class="archive-link" href="https://www.youtube.com/@Steven.Edginton/videos">All films on YouTube</a></div>
-        <div class="film-grid">
-          <article class="feature-film">
-            <a class="film-link" href="https://www.youtube.com/watch?v=EYHWpMswzOI">
-              <div class="frame"><img src="assets/london.webp" width="1200" height="675" loading="lazy" alt="Ron Clark walks along a Tottenham pavement as a red double-decker approaches a railway bridge."><span class="duration">27:59</span></div>
-              <div class="rubric">Documentary <span>/</span> <time datetime="2026-10-10">10 Oct. 2026</time></div>
-              <h3>Ron Clark goes home to Tottenham</h3>
-              <p>He’s 92. The last time he walked these streets was 56 years ago.</p>
-            </a>
-          </article>
+        <article class="feature-film">
+          <a class="film-link" href="https://www.youtube.com/watch?v=EYHWpMswzOI">
+            <div class="frame"><img src="assets/london.webp" width="1200" height="675" loading="lazy" alt="Ron Clark walks towards a railway bridge in Tottenham as a red double-decker comes through the arch."><span class="duration">27:59</span></div>
+            <h3>Ron Clark goes home to Tottenham</h3>
+            <p>He’s 92. The last time he walked these streets was 56 years ago.</p>
+            <div class="film-details">Documentary <span>·</span> <time datetime="2026-10-10">10 October 2026</time></div>
+          </a>
+        </article>
+        <div class="film-list">
           <article>
             <a class="film-link" href="https://www.youtube.com/watch?v=cnxw7EeApTE">
-              <div class="frame"><img src="assets/veteran.webp" width="760" height="428" loading="lazy" alt="A veteran smiles during his interview."><span class="duration">40:03</span></div>
-              <div class="rubric">Interview <span>/</span> <time datetime="2026-11-11">11 Nov. 2026</time></div>
-              <h3>A 102-year-old veteran on the Britain he fought for</h3>
+              <img src="assets/veteran.webp" width="760" height="428" loading="lazy" alt="">
+              <div>
+                <h3>Don Poole remembers his school trip to Nazi Germany</h3>
+                <div class="film-details"><time datetime="2026-11-11">11 Nov. 2026</time> <span>·</span> 40:03</div>
+              </div>
             </a>
           </article>
           <article>
             <a class="film-link" href="https://www.youtube.com/watch?v=gKzJzKAldfc">
-              <div class="frame"><img src="assets/farage.webp" width="760" height="428" loading="lazy" alt="Nigel Farage speaks at his desk in an interview filmed in 2018."><span class="duration">23:16</span></div>
-              <div class="rubric">Interview <span>/</span> <time datetime="2026-11-08">8 Nov. 2026</time></div>
-              <h3>Nigel Farage on the First World War</h3>
+              <img src="assets/farage.webp" width="760" height="428" loading="lazy" alt="">
+              <div>
+                <h3>Nigel Farage on the First World War</h3>
+                <div class="film-details">Recorded in 2018 <span>·</span> Released <time datetime="2026-11-08">8 Nov. 2026</time> <span>·</span> 23:16</div>
+              </div>
             </a>
           </article>
         </div>

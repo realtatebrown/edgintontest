@@ -10,16 +10,21 @@
   <link rel="icon" href="data:,">
   <link rel="preload" href="assets/masthead.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="style.css">
+  <script defer src="interviews.js"></script>
 </head>
 <body id="top">
   <a class="skip" href="#main">Skip to the interviews</a>
   <div class="paper">
-    <header>
+    <header class="inside-header">
       <div class="dateline">
         <span>London</span>
-        <time datetime="2026-11-23">Monday, 23 November 2026</time>
+        <time datetime="2026-11-23"><span class="date-long">Monday, 23 November 2026</span><span class="date-short">23 Nov. 2026</span></time>
       </div>
       <div class="masthead"><a href="index.html" aria-label="Edginton, front page">EDGINTON</a></div>
+      <div class="reader-links">
+        <a class="sign-in" href="https://substack.com/sign-in?redirect=%2F&amp;for_pub=stevenedginton">Sign in</a>
+        <a class="subscribe" href="https://www.stevenedginton.com/subscribe">Subscribe</a>
+      </div>
       <nav aria-label="Publication">
         <div class="desks">
           <a href="index.html#investigations">Investigations</a>
@@ -27,15 +32,18 @@
           <a href="index.html#films">Films</a>
           <a href="https://www.stevenedginton.com/archive">Archive</a>
         </div>
-        <a class="subscribe" href="https://www.stevenedginton.com/subscribe">Subscribe</a>
       </nav>
     </header>
 
     <main id="main" class="interview-index">
       <div class="index-heading">
-        <h1>Interviews</h1><span>Guest index · A–Z</span>
+        <h1>Interviews</h1>
+        <div class="index-sort" role="group" aria-label="Sort interviews" hidden>
+          <button type="button" data-order="az" aria-pressed="true">Guest A–Z</button>
+          <button type="button" data-order="newest" aria-pressed="false">Newest first</button>
+        </div>
       </div>
-      <ol class="guest-list" aria-label="Interviews by guest surname">
+      <ol class="guest-list" aria-label="Interview listings">
           <li>
             <article>
               <a class="guest-link" href="https://www.youtube.com/watch?v=T2Ndu0vZzuI">
@@ -78,8 +86,8 @@
                 <img src="assets/guests/farage.webp" width="320" height="320" alt="">
                 <div class="guest-copy">
                   <h2>Nigel Farage</h2>
-                  <p>Why Britain fought the First World War, in a conversation recorded in 2018.</p>
-                  <div class="guest-details"><time datetime="2026-11-08">8 November 2026</time><span>23:16</span></div>
+                  <p>Why Britain fought the First World War.</p>
+                  <div class="guest-details">Recorded in 2018 <span>Released <time datetime="2026-11-08">8 November 2026</time></span><span>23:16</span></div>
                 </div>
               </a>
             </article>
