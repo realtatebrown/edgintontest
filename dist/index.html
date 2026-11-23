@@ -8,7 +8,8 @@
   <meta name="description" content="Original reporting, interviews and documentary films by Steven Edginton.">
   <title>EDGINTON — Investigations, interviews and films</title>
   <link rel="icon" href="data:,">
-  <link rel="preload" href="assets/masthead.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" media="(min-width: 541px)" href="assets/edginton-display.svg" as="image" type="image/svg+xml">
+  <link rel="preload" media="(max-width: 540px)" href="assets/edginton-small.svg" as="image" type="image/svg+xml">
   <link rel="preload" href="assets/gloock.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="style.css">
   <script defer src="player.js"></script>
@@ -21,7 +22,7 @@
         <span>London</span>
         <time datetime="2026-11-23"><span class="date-long">Monday, 23 November 2026</span><span class="date-short">23 Nov. 2026</span></time>
       </div>
-      <h1 class="masthead"><a href="#top" aria-label="Edginton, front page">EDGINTON</a></h1>
+      <h1 class="masthead"><a href="#top" aria-label="Edginton, front page"><picture><source media="(max-width: 540px)" srcset="assets/edginton-small.svg" width="11376" height="1564"><img src="assets/edginton-display.svg" width="11125" height="1540" alt="EDGINTON"></picture></a></h1>
       <div class="reader-links">
         <a class="sign-in" href="https://substack.com/sign-in?redirect=%2F&amp;for_pub=stevenedginton">Sign in</a>
         <a class="subscribe" href="https://www.stevenedginton.com/subscribe">Subscribe</a>
@@ -39,20 +40,23 @@
     <main id="main">
       <div class="front">
         <article id="latest-interview" class="lead" aria-labelledby="lead-title">
-          <div class="section-line"><span class="kicker"><i></i>The interview</span><time datetime="2026-11-17">17 November 2026</time></div>
+          <div class="section-line"><span class="kicker"><i></i>Christopher Caldwell</span><time datetime="2026-11-17"><span class="date-long">17 November 2026</span><span class="date-short">17 Nov. 2026</span></time></div>
           <h2 id="lead-title"><a href="https://www.youtube.com/watch?v=eC46_djd7-4">Can the Boriswave be reversed?</a></h2>
           <p class="lead-intro">After his Oakeshott Lecture in London, I asked Christopher Caldwell how much of Boris Johnson’s immigration policy Britain could undo.</p>
           <figure>
             <div class="screen">
               <a class="poster" id="play-film" href="https://www.youtube.com/watch?v=eC46_djd7-4" aria-label="Play the Christopher Caldwell interview, 32 minutes 31 seconds">
-                <img src="assets/caldwell.webp" width="1032" height="473" alt="Christopher Caldwell gestures as Steven Edginton listens on stage in London." fetchpriority="high">
+                <picture>
+                  <source media="(max-width: 540px)" srcset="assets/caldwell-mobile.webp" width="959" height="510">
+                  <img src="assets/caldwell.webp" width="1670" height="702" alt="Christopher Caldwell raises both hands as Steven Edginton turns to listen." fetchpriority="high">
+                </picture>
                 <span class="play"><span class="triangle"></span>Play interview</span>
               </a>
             </div>
             <figcaption class="player-meta"><span>32:31</span><a class="watch-source" href="https://www.youtube.com/watch?v=eC46_djd7-4">Watch on YouTube</a></figcaption>
           </figure>
-          <ol class="chapter-list" aria-label="Jump to a question in the interview">
-            <li><a href="https://www.youtube.com/watch?v=eC46_djd7-4&amp;t=453s"><span>7:33</span>Can the Boriswave be reversed?</a></li>
+          <ol class="chapter-list" aria-label="Jump to a chapter in the interview">
+            <li><a href="https://www.youtube.com/watch?v=eC46_djd7-4&amp;t=453s"><span>7:33</span>Citizens and residents</a></li>
             <li><a href="https://www.youtube.com/watch?v=eC46_djd7-4&amp;t=1080s"><span>18:00</span>Is Islam inherently political?</a></li>
             <li><a href="https://www.youtube.com/watch?v=eC46_djd7-4&amp;t=1749s"><span>29:09</span>Is demography destiny?</a></li>
           </ol>
@@ -61,13 +65,17 @@
         <section class="reports" id="investigations" aria-labelledby="invest-title">
           <h2 class="desk-title" id="invest-title">Investigations</h2>
           <article>
-            <div class="rubric">Asylum <span>/</span> <time datetime="2026-11-20">20 Nov.</time></div>
-            <h3><a href="https://www.stevenedginton.com/p/judge-grants-asylum-to-migrant-because">Why a judge granted asylum over Muslim Brotherhood ties</a></h3>
+            <div class="report-heading">
+              <h3><a href="https://www.stevenedginton.com/p/judge-grants-asylum-to-migrant-because">Why a judge granted asylum over Muslim Brotherhood ties</a></h3>
+              <time datetime="2026-11-20">20 Nov.</time>
+            </div>
             <p>Photographs from protests helped an Egyptian man win his third appeal in Britain.</p>
           </article>
           <article>
-            <div class="rubric">Defence <span>/</span> <time datetime="2026-11-18">18 Nov.</time></div>
-            <h3><a href="https://www.stevenedginton.com/p/counter-terror-course-for-military">What military recruits are asked about the Army Cadets</a></h3>
+            <div class="report-heading">
+              <h3><a href="https://www.stevenedginton.com/p/counter-terror-course-for-military">What military recruits are asked about the Army Cadets</a></h3>
+              <time datetime="2026-11-18">18 Nov.</time>
+            </div>
             <figure class="document">
               <blockquote cite="https://www.support-people-susceptible-to-radicalisation.service.gov.uk/case-study/awareness-course/case-studies-n/1/question">
                 <a class="clipping" href="https://www.support-people-susceptible-to-radicalisation.service.gov.uk/case-study/awareness-course/case-studies-n/1/question">
@@ -80,8 +88,10 @@
             </figure>
           </article>
           <article>
-            <div class="rubric">Courts <span>/</span> <time datetime="2026-11-10">10 Nov.</time></div>
-            <h3><a href="https://www.stevenedginton.com/p/illegal-albanian-drugs-criminal-beats">The missing evidence in a six-year deportation case</a></h3>
+            <div class="report-heading">
+              <h3><a href="https://www.stevenedginton.com/p/illegal-albanian-drugs-criminal-beats">The missing evidence in a six-year deportation case</a></h3>
+              <time datetime="2026-11-10">10 Nov.</time>
+            </div>
           </article>
           <a class="archive-link" href="https://www.stevenedginton.com/archive">Browse the reporting archive</a>
         </section>
@@ -92,9 +102,13 @@
         <article class="feature-film">
           <a class="film-link" href="https://www.youtube.com/watch?v=EYHWpMswzOI">
             <div class="frame"><img src="assets/london.webp" width="1200" height="675" loading="lazy" alt="Ron Clark walks towards a railway bridge in Tottenham as a red double-decker comes through the arch."><span class="duration">27:59</span></div>
-            <h3>Ron Clark goes home to Tottenham</h3>
-            <p>He’s 92. The last time he walked these streets was 56 years ago.</p>
-            <div class="film-details">Documentary <span>·</span> <time datetime="2026-10-10">10 October 2026</time></div>
+            <div class="film-caption">
+              <h3>Ron Clark goes home to Tottenham</h3>
+              <div>
+                <p>He’s 92. The last time he walked these streets was 56 years ago.</p>
+                <div class="film-details">Documentary <span>·</span> <time datetime="2026-10-10">10 October 2026</time></div>
+              </div>
+            </div>
           </a>
         </article>
         <div class="film-list">
@@ -120,7 +134,7 @@
       </section>
     </main>
     <footer>
-      <div><span class="small-mark">EDGINTON</span><span class="footer-credit">Independent journalism by Steven Edginton.</span></div>
+      <div><img class="small-mark" src="assets/edginton-small.svg" width="11376" height="1564" alt="EDGINTON"><span class="footer-credit">Independent journalism by Steven Edginton.</span></div>
       <div class="footer-links"><a href="https://www.stevenedginton.com/about">About</a><a href="https://www.stevenedginton.com/subscribe">Newsletter</a><a href="https://www.youtube.com/@Steven.Edginton">YouTube</a></div>
     </footer>
   </div>
