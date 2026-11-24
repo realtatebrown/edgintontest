@@ -290,3 +290,18 @@ section[id], article[id] { scroll-margin-top: 1rem; }
   footer > div { gap: .35rem; }
   .footer-links { gap: 1rem; }
 }
+
+.publication-index { width: var(--measure); margin: clamp(2rem, 5vw, 4.5rem) auto 0; }
+.post-list { margin: 0; padding: 0; list-style: none; }
+.post-list li { display: grid; grid-template-columns: 7rem minmax(0,1fr); gap: 1rem; align-items: baseline; border-top: 1px solid var(--rule); padding: .75rem 0; }
+.post-list time { font: .85rem/1.4 var(--utility); color: var(--muted); }
+.post-list .undated a { grid-column: -2 / -1; }
+.post-list a { font: 1.15rem/1.35 var(--news); }
+.publication-index summary { width: fit-content; padding: .85rem 0; cursor: pointer; font: .95rem/1.4 var(--utility); }
+.newsletter-signup { min-width: 0; }
+.newsletter-signup iframe { display: block; width: min(100%, 480px); height: 320px; margin-top: 1rem; border: 0; background: white; }
+@media(max-width: 620px) {
+  .post-list li { grid-template-columns: 1fr; gap: .15rem; }
+  .newsletter-signup { display: contents; }
+  .newsletter-signup iframe { grid-column: 1 / -1; margin-top: 0; }
+}
