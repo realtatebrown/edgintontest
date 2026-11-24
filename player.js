@@ -3,13 +3,22 @@ const roomChapters = room.querySelector('.chapter-list');
 const playerHost = room.querySelector('.screening-player');
 const returnButton = room.querySelector('.screening-back');
 const sourceLink = room.querySelector('#screening-source');
+const screeningStill = room.querySelector('.screening-still');
 let opener;
 let scrollPosition;
 
-// A second cover proof shares the photograph, typography and player with the live edition.
-if (new URLSearchParams(location.search).get('cover') === 'question') {
-  document.querySelector('#lead-title a').textContent = 'Can the Boriswave be reversed?';
-  document.querySelector('.lead-intro').textContent = 'After his Oakeshott Lecture, I asked Christopher Caldwell how much of Boris Johnson’s immigration policy Britain could undo.';
+const chapterStrip = document.querySelector('.chapter-strip');
+const narrowCover = window.matchMedia('(max-width: 760px)');
+
+function setChapterLayout() {
+  chapterStrip.open = !narrowCover.matches;
+}
+
+setChapterLayout();
+narrowCover.addEventListener('change', setChapterLayout);
+
+if (new URLSearchParams(location.search).get('cover') === 'quote') {
+  document.querySelector('#lead-title a').textContent = '“It will never again be the same”';
 }
 
 function setFilm(watchLink) {
@@ -60,6 +69,9 @@ document.addEventListener('click', event => {
     opener = link;
     scrollPosition = {left: window.scrollX, top: window.scrollY};
     room.querySelector('h2').textContent = film.dataset.filmTitle;
+    screeningStill.hidden = !film.dataset.screeningStill;
+    if (film.dataset.screeningStill) screeningStill.src = film.dataset.screeningStill;
+    else screeningStill.removeAttribute('src');
     loadChapters(film);
     room.showModal();
     room.scrollTop = 0;
