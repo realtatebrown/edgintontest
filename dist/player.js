@@ -1,4 +1,21 @@
-const room = document.querySelector('.screening');
+const room = document.createElement('dialog');
+room.className = 'screening';
+room.setAttribute('aria-labelledby', 'screening-title');
+room.innerHTML = `
+<div class="screening-inner">
+  <div class="screening-head">
+    <div class="screening-credit">
+      <img class="screening-still" width="1400" height="750" alt="" hidden>
+      <h2 id="screening-title"></h2>
+    </div>
+    <button type="button" class="screening-back" autofocus>Back to the front page</button>
+  </div>
+  <div class="screening-player"></div>
+  <ol class="chapter-list" aria-label="Jump to a scene"></ol>
+  <a class="watch-source" id="screening-source" href="https://www.youtube.com/@Steven.Edginton">Watch on YouTube</a>
+</div>
+`;
+document.body.append(room);
 const roomChapters = room.querySelector('.chapter-list');
 const playerHost = room.querySelector('.screening-player');
 const returnButton = room.querySelector('.screening-back');
@@ -8,17 +25,21 @@ let opener;
 let scrollPosition;
 
 const chapterStrip = document.querySelector('.chapter-strip');
-const narrowCover = window.matchMedia('(max-width: 760px)');
+if (chapterStrip) {
+  const narrowCover = window.matchMedia('(max-width: 760px)');
+  function setChapterLayout() {
+    chapterStrip.open = !narrowCover.matches;
+  }
+  setChapterLayout();
+  narrowCover.addEventListener('change', setChapterLayout);
 
-function setChapterLayout() {
-  chapterStrip.open = !narrowCover.matches;
+  if (new URLSearchParams(location.search).get('cover') === 'quote') {
+    document.querySelector('#lead-title a').textContent = '“It will never again be the same”';
+  }
 }
 
-setChapterLayout();
-narrowCover.addEventListener('change', setChapterLayout);
-
-if (new URLSearchParams(location.search).get('cover') === 'quote') {
-  document.querySelector('#lead-title a').textContent = '“It will never again be the same”';
+if (document.querySelector('.interview-index')) {
+  returnButton.textContent = 'Back to interviews';
 }
 
 function setFilm(watchLink) {
@@ -53,7 +74,7 @@ function loadChapters(film) {
     const label = source.querySelector('.chapter-name, .scene-title').textContent;
     link.href = source.href;
     link.setAttribute('data-watch', '');
-    link.append(time, label);
+    link.append(time, ' ', label);
     item.append(link);
     roomChapters.append(item);
   }
@@ -65,10 +86,10 @@ document.addEventListener('click', event => {
   if (typeof room.showModal !== 'function') return;
   event.preventDefault();
   if (!room.open) {
-    const film = link.closest('[data-film-title]');
+    const film = link.closest('article');
     opener = link;
     scrollPosition = {left: window.scrollX, top: window.scrollY};
-    room.querySelector('h2').textContent = film.dataset.filmTitle;
+    room.querySelector('h2').textContent = film.dataset.filmTitle || film.querySelector('h2').textContent;
     screeningStill.hidden = !film.dataset.screeningStill;
     if (film.dataset.screeningStill) screeningStill.src = film.dataset.screeningStill;
     else screeningStill.removeAttribute('src');
