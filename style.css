@@ -42,16 +42,13 @@ header {
   container-type: inline-size;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  grid-template-areas: "date date" "mark mark" "desks readers";
+  grid-template-areas: "flag flag" "mark mark" "desks readers";
   border-top: 2px solid var(--ink);
   border-bottom: 1px solid var(--ink);
 }
 header .masthead { grid-area: mark; }
 .inside-header .masthead { width: clamp(12rem, 30cqw, 25rem); max-width: 100%; margin: .65rem 0 .8rem; }
-.dateline { grid-area: date; display: flex; justify-content: space-between; align-items: baseline; padding-top: .53rem; font: .8rem/1.2 var(--utility); }
-.dateline > span { text-transform: uppercase; letter-spacing: .16em; font-weight: 700; }
-.date-short { display: none; }
-.dateline time { font-family: Georgia, serif; font-style: italic; font-size: .94rem; }
+.masthead-flag { grid-area: flag; align-self: center; width: 28px; height: 14px; margin-top: .53rem; }
 .masthead { margin: 1.4cqw 0 1.25cqw; }
 .masthead a, .masthead picture, .masthead img { display: block; width: 100%; height: auto; }
 nav, .reader-links { border-top: 3px solid var(--ink); font: 600 .9rem/1.2 var(--utility); }
@@ -278,13 +275,9 @@ section[id], article[id] { scroll-margin-top: 1rem; }
   .film-sequence { grid-template-columns: 1fr; gap: 1.35rem; }
 }
 @media(max-width: 540px) {
-  header { grid-template-areas: "date readers" "mark mark" "desks desks"; }
+  header { grid-template-areas: "flag readers" "mark mark" "desks desks"; }
   .paper { width: calc(100% - 1.75rem); padding-top: .65rem; }
-  .dateline { flex-wrap: wrap; align-content: center; justify-content: flex-start; column-gap: .6rem; padding: .2rem .4rem .2rem 0; }
-  .dateline > span { font-size: .72rem; }
-  .dateline time { font-size: .85rem; }
-  .date-short { display: inline; }
-  .date-long { display: none; }
+  .masthead-flag { margin-top: 0; }
   .reader-links { border: 0; font-size: .85rem; gap: .75rem; }
   .masthead { margin: .6rem 0 .5rem; }
   nav { font-size: .88rem; }

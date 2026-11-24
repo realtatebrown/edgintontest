@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+  <defs>
+    <clipPath id="counterchange"><path d="M0 0l30 15H0z M30 0h30L30 15z M30 15h30v15z M0 30l30-15v15z"/></clipPath>
+  </defs>
+  <path fill="#012169" d="M0 0h60v30H0z"/>
+  <path d="m0 0 60 30m0-30L0 30" stroke="white" stroke-width="6"/>
+  <path d="m0 0 60 30m0-30L0 30" stroke="#c8102e" stroke-width="4" clip-path="url(#counterchange)"/>
+  <path d="M30 0v30M0 15h60" stroke="white" stroke-width="10"/>
+  <path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/>
+</svg>
