@@ -66,7 +66,7 @@ function setFilm(watchLink) {
 
 function loadChapters(film) {
   roomChapters.replaceChildren();
-  for (const source of film.querySelectorAll('.chapter-list a, .film-sequence a')) {
+  for (const source of film.querySelectorAll('.chapter-list a[data-watch], .film-sequence a[data-watch]')) {
     const item = document.createElement('li');
     const link = document.createElement('a');
     const time = document.createElement('span');
